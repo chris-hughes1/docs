@@ -1,0 +1,564 @@
+# Building Customer Success at Mintlify
+
+## Introduction
+
+This outlines what I'd do as Mintlify's first CS hire, joining a team where the Chief of Staff currently handles customer success. It's a practical playbook for the first 90 days, built from researching your customers, pricing model, and product.
+
+<Note>
+**Company Context:** Mintlify serves 5,000+ companies reaching 70M+ developers annually. Top customers include Anthropic, Cursor, Perplexity, and X. Series A funded (a16z, BCV), moving upmarket into Enterprise. Pricing: Hobby (free) to Pro ($120/mo) to Custom (enterprise).
+</Note>
+
+<Warning>
+**Before anything else:** Week 1 is shadowing the Chief of Staff to understand what's working and learning the product deeply. This isn't greenfield, it's scaling what works and fixing what doesn't. Daily standups with CTO in first month to build trust, understand technical constraints, and stay aligned on priorities.
+</Warning>
+
+---
+
+## Week 1 Priority: Actually Learn the Product
+
+Before touching any customer accounts, I need to become a product expert. Developers smell surface-level knowledge instantly.
+
+**Days 1-2: Get my hands dirty**
+- Build my own doc site using CLI and Web Editor
+- Try every component, enable AI Assistant, set up custom domain
+- Break things intentionally to understand edge cases
+
+**Day 3: See what we're up against**
+- Sign up for ReadMe, GitBook, Docusaurus
+- Document why customers choose us vs. them
+- Build "Why Mintlify Wins" one-pager
+
+**Day 4: Figure out what customers actually use**
+- Pull feature adoption data from backend
+- Identify which features correlate with retention
+- Find expansion opportunities hiding in the data
+
+**Day 5: Sync up on what's coming**
+- Review Q1-Q2 roadmap with Product/CTO
+- Understand what's shipping, what's on backlog, what we'll never build
+- Set up weekly sync cadence
+
+---
+
+## Understanding Our Product Moat
+
+Before diving into tactics, here's what makes Mintlify defensible:
+
+<AccordionGroup>
+  <Accordion title="What Makes Us Different" icon="star">
+    **AI-Native Architecture:**
+    - AI Assistant powered by Claude Sonnet 4.5 (Anthropic partnership)
+    - llms.txt/llms-full.txt for AI discoverability (we co-developed with Anthropic)
+    - MCP server for tool interoperability
+    
+    **Developer Workflow Integration:**
+    - Full Git workflow with branch previews
+    - CI/CD automated deployments
+    - Web Editor for non-technical users (unique hybrid)
+    - Preview deployments for every PR
+    
+    **vs. ReadMe:** Better AI, stronger docs-as-code workflow  
+    **vs. GitBook:** Superior AI Assistant, better API playground  
+    **vs. Docusaurus:** Managed service (no maintenance), built-in AI
+  </Accordion>
+  
+  <Accordion title="What We Don't Do (Yet)" icon="triangle-exclamation">
+    - Native multi-language content management
+    - Advanced workflow automation beyond Git
+    - Video hosting (can embed, don't host)
+    - Marketing landing page builder (not our focus)
+    
+    **Known friction points:**
+    - MDX syntax learning curve (addressed: Web Editor)
+    - Git intimidating for non-engineers (addressed: Web Editor)
+    - Custom styling needs code (addressed: themes coming Q2)
+    
+    Knowing boundaries prevents overpromising.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Task 1: Building CS from Scratch
+
+### What I'd Track First (Day 1-30)
+
+Start with what you can track in Google Sheets. Skip fancy dashboards.
+
+**The Only Metric That Matters: Gross Revenue Retention**
+- Target: 90%+ monthly GRR
+- Track in: Stripe export to Google Sheets
+- Columns: Customer name, MRR, Renewal date, Days until renewal, Health status, Features enabled
+
+**Week 1 Action:** Sort by renewal date, flag anyone under 90 days.
+
+**Three Health Signals I'd Track Manually:**
+
+| Signal | How to Check | Healthy | At Risk |
+|--------|--------------|---------|---------|
+| **Docs Activity** | Git repo or web editor | Commit in last 14 days | Nothing 45+ days |
+| **Traffic Trend** | Insights dashboard | Growing or flat | Down 2 months |
+| **Feature Adoption** | Backend data | Using 3+ key features | Only 1 feature |
+
+**Feature Adoption Scoring:**
+- Git integration active: +2 points
+- Custom domain configured: +2 points
+- AI Assistant enabled: +1 point
+- API Playground used: +1 point
+
+**Health: 7+ points = Green | 4-6 = Yellow | Under 4 = Red**
+
+<Tip>
+Unlike typical SaaS, docs platforms show health through content freshness. When updates stop, that's your early warning.
+</Tip>
+
+---
+
+### How I'd Drive Expansion (Day 30-60)
+
+Based on your pricing model and customer research:
+
+<CardGroup cols={2}>
+  <Card title="Pro Upgrade (Quick Win)" icon="bolt">
+    **From:** Hobby (free) → **To:** Pro ($120/mo)
+    
+    **Trigger:** 3+ team members, OR asking about preview deployments
+    
+    **What I'd say:** "Right now you're manually checking docs changes. Pro gives you a preview URL for every PR. Takes 30 seconds to set up."
+    
+    **Timeline:** 1-2 weeks  
+    **Month 1 Target:** 3 upgrades
+  </Card>
+
+  <Card title="AI Assistant Enablement" icon="sparkles">
+    **What it does:** Answers questions, cites sources, powered by Claude Sonnet 4.5
+    
+    **Requirements:**
+    - 50+ pages of content
+    - 10K+ monthly visitors
+    - Well-structured docs
+    
+    **ROI:** Cursor handles 50K+ queries/month. That's support tickets you're not answering.
+    
+    **Timeline:** 2-4 weeks  
+    **Month 1 Target:** 5 enabled
+  </Card>
+
+  <Card title="Multi-Product Expansion" icon="layer-group">
+    **Pattern:** Anthropic docs 3 products. Glean unified scattered docs into Mintlify.
+    
+    **When to position:** Customer mentions "we also need docs for..."
+    
+    **Timeline:** 3-6 months  
+    **Q1 Target:** Qualify 3 opportunities
+  </Card>
+
+  <Card title="Enterprise Upgrade" icon="shield">
+    **Q1 Roadmap (from CTO):**
+    - SSO/SAML (Jan)
+    - User permissions (Feb)
+    - Audit logging (Feb)
+    
+    **How I'd use this:** Pre-sell to prospects in security reviews now, migrate when it ships.
+    
+    **Timeline:** 1-3 months  
+    **Q1 Target:** 2 deals
+  </Card>
+</CardGroup>
+
+**First 60 Days Execution:**
+
+<Steps>
+  <Step title="Week 1-2: Build the Pipeline">
+    Export Pro customers from Stripe, pull feature usage data, identify gaps:
+    - Pro customers not using AI Assistant (enablement opportunity)
+    - Hobby users with 3+ contributors (Pro upgrade)
+    - High-traffic customers (Enterprise candidates)
+  </Step>
+  
+  <Step title="Week 3-4: Quick Wins">
+    Focus on Hobby to Pro upgrades. Email template:
+    
+    ```
+    Subject: [Company] - saw you added 3 team members
+    
+    Hey [Name],
+    
+    Noticed your team's grown to [X] people. Pro unlocks:
+    - Preview URL for every PR
+    - Unlimited team members  
+    - Password protection
+    
+    Want a 2-week trial? I can enable it in 5 minutes.
+    ```
+    
+    **Target:** 5 conversations, 2 conversions
+  </Step>
+  
+  <Step title="Week 5-8: AI Assistant Push">
+    Enable for high-traffic Pro customers:
+    1. Review their docs structure
+    2. Demo on their own docs
+    3. Enable (24-48hr indexing)
+    4. 30-day check-in on usage
+    
+    **Target:** 5 enabled, track metrics
+  </Step>
+</Steps>
+
+<Info>
+**Custom tier pricing:** $500-2,000/month depending on seats and SLA. Includes SSO, 99.999% uptime, support SLA, audit logging. When prospects ask for these, they're signaling budget authority.
+</Info>
+
+---
+
+### The Stickiest Features
+
+<AccordionGroup>
+  <Accordion title="Docs-as-Code + Git (Highest Stickiness)" icon="git-alt">
+    **Why they can't leave:**
+    
+    From case studies: Anthropic, Pinecone, Laravel built entire workflows around Git-based docs.
+    
+    Once teams build around:
+    - PR reviews
+    - CI/CD deployments
+    - Version history
+    - Branch previews
+    
+    Switching means retraining everyone and rebuilding infrastructure.
+    
+    **How to strengthen:**
+    - Monitor Git health
+    - Celebrate automation milestones
+    - Create "Advanced Git workflows" content
+    
+    **Early warning:** Asks about export or stops using GitHub
+  </Accordion>
+
+  <Accordion title="Custom Domain (High Switching Cost)" icon="palette">
+    When docs.company.com is live:
+    - Marketing materials reference it
+    - Onboarding links to it
+    - SEO built around it
+    
+    Changing breaks links everywhere.
+    
+    **How to strengthen:**
+    - Make setup stupidly easy
+    - Ensure 99.9%+ uptime
+    - Monitor SSL renewals
+    - Surface metrics: "50K visitors, 4.2min session time"
+    
+    **Early warning:** SSL not renewed, back to generic subdomain
+  </Accordion>
+
+  <Accordion title="API Playground (Infrastructure-Level)" icon="code">
+    For API companies (Coinbase, Resend, Anthropic), it's how:
+    - Developers test before coding
+    - Support debugs issues
+    - Sales demos live
+    
+    At 50K+ monthly tests, it's embedded infrastructure.
+    
+    **How to strengthen:**
+    - Track usage, surface to customer
+    - Zero downtime (emergency if broken)
+    - Share metrics: "75K tests = 300 tickets prevented"
+    
+    **Early warning:** Declining usage, error spikes
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+**Biggest Churn Risk:** Complexity fatigue. If customers feel overwhelmed by features, they'll seek simpler tools. Watch for "too many options" support tickets.
+</Warning>
+
+---
+
+### Managing Feature Requests
+
+You're between enterprise customers demanding features and an engineering team shipping fast.
+
+**First 30 Days: Just Triage**
+- Simple Notion board: Request | Customer | MRR | Urgency
+- Log everything
+- Weekly sync with Chief of Staff/Product
+- Respond within 48 hours
+
+**Days 30-60: 3-Tier System**
+- **Tier 1 (Top 20%):** Quarterly roadmap calls, 5-day response SLA
+- **Tier 2 (Middle 60%):** Public roadmap, community voting, 2-week SLA
+- **Tier 3 (Bottom 20%):** Self-service portal, async updates
+
+**Days 60-90: Test "Fast-Pass"**
+When enterprise says "urgent": Offer professional services at 2-3x eng cost. Tests urgency, funds development.
+
+**Response Template for "No":**
+```
+We've evaluated [request]. Here's our thinking:
+- Business Impact: [High/Medium/Low]
+- Strategic Fit: [Aligns with AI-native vision?]
+- Customer Reach: [X customers affected]
+- Engineering: [Y weeks]
+
+We're prioritizing [SSO/AI v2] right now. Not never, just not Q1.
+
+What problem are you solving? Might be another way today.
+```
+
+<Note>
+**Design Partner Program (Month 2):** Pick 3-5 strategic customers for beta access. Exchange: feedback, case study, reference, logo. Start with Anthropic (co-developed llms.txt with you, mentioned in your blog post on llms.txt and the GEO strategy), AI companies aligned with your product focus, or any customer requesting features you're already building.
+</Note>
+
+---
+
+## Task 2: Anthropic Expansion Playbook
+
+### Current State
+
+**Company:** Leading AI research, $2B valuation, recently profitable (TechCrunch Oct 2024), 20M+ users
+
+**Mintlify Usage:**
+- 1.5M+ monthly developers
+- 3 products documented (Claude API, MCP, Claude Code)
+- Co-developed llms.txt (strategic partner, not just customer)
+- Docs-as-code via GitHub
+
+**From exploring docs.anthropic.com:**
+- Using AI Assistant (basic implementation)
+- API Playground active and well-designed
+- NOT using: Advanced analytics, personalization, multi-language
+
+---
+
+### Primary Opportunity: AI Assistant as Claude Showcase
+
+The prompt asked "be specific: AI Chat?" Here's why this is number one:
+
+<CardGroup cols={2}>
+  <Card title="The Opportunity" icon="sparkles">
+    **What:** Upgrade to custom Claude Sonnet 4.5 integration
+    
+    **Why:** Their docs become the reference for what Claude can do
+    
+    **Revenue:** Custom tier + professional services ($50-75K)
+    
+    **Timeline:** 3-4 months
+  </Card>
+
+  <Card title="The Meta Pitch" icon="lightbulb">
+    **It's marketing, not just docs**
+    
+    When enterprises evaluate Claude API, they see it live in Anthropic's docs:
+    - Deep context understanding
+    - Code generation
+    - Multi-turn conversations
+    
+    Sales asset for their business.
+  </Card>
+</CardGroup>
+
+**Why not internal docs first?**  
+AI Assistant is faster (3-4 months vs 6-9), aligns with their core business, creates competitive moat. Do both eventually, lead with AI.
+
+---
+
+### Why They Haven't Done This Yet
+
+<AccordionGroup>
+  <Accordion title="Engineering Resources">
+    Custom integration needs their eng time. Counter: Joint project, split 50/50.
+  </Accordion>
+
+  <Accordion title="ROI Not Quantified">
+    Current assistant "works." Counter: Frame as GTM investment, not docs improvement. Marketing value + support deflection.
+  </Accordion>
+
+  <Accordion title="Not Positioned Yet">
+    Chief of Staff focused on core docs working. Counter: Greenfield, bring it up proactively.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+**Competitive Advantage:** ReadMe, GitBook, Docusaurus can't offer this. Only Mintlify + Anthropic can create "docs powered by the AI company's own models."
+</Tip>
+
+---
+
+### How I'd Qualify This
+
+**Pre-Call Research (30 mins):**
+1. Pull current AI Assistant analytics (queries/month, satisfaction rate, common questions)
+2. Test it myself with 10 questions, note what works and what doesn't
+3. Review recent news: hiring, launches, competitive moves
+4. Check champion engagement: email response time, Slack activity
+
+**Discovery Questions:**
+
+**Current State:**
+- "How's AI Assistant performing? What feedback are you getting from developers?"
+- "Do you see docs as marketing infrastructure or just technical reference?"
+- "Who's making decisions about doc tooling investments?"
+
+**Quantify Value:**
+- "How many support tickets do you get that docs should answer?"
+- "What's the cost of a slow developer onboarding experience?"
+- "What would it be worth if your docs became the reference for how to use Claude?"
+
+**Budget & Authority:**
+- "Who signs off on doc tooling investments at this scale?"
+- "Do you have budget allocated for developer experience improvements?"
+- "How do you evaluate engineering time vs. professional services costs?"
+
+**Timing:**
+- "Any upcoming launches where this would be valuable?" (Claude 4.5, new products, conferences)
+- "What's your docs roadmap for next quarter?"
+- "What's blocking you from doing this today?"
+
+---
+
+### Expansion Readiness
+
+<CardGroup cols={2}>
+  <Card title="Green Lights" icon="circle-check">
+    **Strong Buy Signals:**
+    
+    - **Product launch coming:** Claude 4.5 release, new API features, or conference demos where showcase docs would be valuable
+    - **Hiring DevRel or docs team:** Signals investment in developer experience and capacity to execute
+    - **Recent profitability:** Budget available for strategic investments (TechCrunch reported this Oct 2024)
+    - **High AI Assistant usage:** Current queries/month prove demand, just need better version
+    - **Champion engaged:** Responds within 24-48 hours, shows up prepared to calls, brings colleagues
+    - **Competitive pressure:** If OpenAI or Google improving their docs quality, creates urgency
+    - **"Docs as product" language:** When they talk about docs as competitive advantage, not just utility
+
+    **Action:** Move to proposal with specific timeline, pricing options, and success metrics
+  </Card>
+
+  <Card title="Red Lights" icon="circle-xmark">
+    **Warning Signals:**
+    
+    - **Engineering fully allocated:** "We don't have bandwidth" with no willingness to explore joint development model
+    - **Cost-cutting mode:** Recent layoffs, hiring freeze, or explicit budget constraints mentioned
+    - **Champion leaving or unresponsive:** Takes week+ to respond, avoids committing to next steps
+    - **Just finished major migration:** Change fatigue from recent Notion/Confluence move or docs overhaul
+    - **Low AI Assistant usage:** Current queries under 5K/month suggests limited demand or poor doc structure
+    - **Vague budget answers:** "We'd need to check" with no clear budget owner identified after multiple asks
+    - **"We'll think about it":** With no specific next steps, evaluation criteria, or timeline
+
+    **Action:** Stay in touch quarterly, nurture for Q2/Q3, don't push hard now. Focus on other accounts.
+  </Card>
+</CardGroup>
+
+---
+
+### 60-Day Plan
+
+**Week 1-2: Initial Outreach**
+
+Email:
+```
+Subject: Your docs + Claude Sonnet 4.5 = ultimate demo
+
+Hi [Name],
+
+Your docs are gold standard. 1.5M+ devs/month.
+
+What if your AI Assistant became *the* reference for 
+Claude Sonnet 4.5? Showcase:
+- Deep context across all 3 products
+- Code generation that works
+- Multi-turn conversations
+
+Every enterprise evaluating Claude sees it live.
+That's marketing infrastructure.
+
+Worth 20 minutes?
+```
+
+**Week 3-4: Discovery**
+
+If qualified, send within 24 hours:
+
+**ROI One-Pager:**
+- Current: Basic assistant, Y% accuracy
+- Enhanced: Custom Claude Sonnet 4.5, 95%+ accuracy
+- Investment: $50-75K professional services, 40-60 Anthropic eng hours, 12-14 weeks
+- Return: Support deflection + marketing showcase
+
+**Pricing Options:**
+1. **Full Professional Services Package:** Custom Claude Sonnet 4.5 integration, tailored prompting, advanced analytics, dedicated Mintlify engineer for 12 weeks. Price: $60-80K
+2. **Joint Development (50/50 split):** Anthropic gets showcase implementation, Mintlify gets reference customer + case study, Anthropic provides Claude API credits at cost. Reduced pricing: $35-45K  
+3. **60-Day Pilot:** Claude API docs only, evaluate success metrics, full rollout if successful. Success criteria: 90%+ answer accuracy, 30% increase in query volume, 4.5+ satisfaction rating, under 2-second response time. Price: $15-25K
+
+**Week 5-8: Proposal**
+
+45-min call with CTO/Head of DevEx:
+1. Current state (2 slides)
+2. Enhanced vision (3 slides with mockups)
+3. Implementation (1 slide)
+4. ROI (2 slides)
+5. Timeline/pricing (1 slide)
+
+**Objection Handling:**
+- "No bandwidth" → We do 80% of work, you provide Claude expertise only
+- "Will it work?" → 60-day pilot first, clear success metrics before full commit
+- "Expensive" → Break down cost vs. support savings + marketing value to API sales
+- "We'll think" → "What specific questions would you need answered to move forward?"
+
+<Warning>
+Don't oversell. They're sophisticated engineers. Lead with specifics: "Current assistant: 73% satisfaction. Claude Sonnet 4.5 custom: 90%+. We'd measure query volume, accuracy, satisfaction, and response time over 60 days."
+</Warning>
+
+**Secondary Opportunity:** Internal docs (3-5x usage potential), but longer cycle (6-9 months) and requires migration from Notion/Confluence. Keep warm for Q2 after AI Assistant success builds trust.
+
+---
+
+## First 90 Days Roadmap
+
+**Days 1-30: Stabilize**
+- Week 1: Shadow Chief of Staff, daily CTO standups, learn product hands-on
+- Week 2: Build dashboard (Google Sheet with top 50 customers)
+- Week 3: Call top 5 at-risk accounts (renewal under 60 days)
+- Week 4: Close 2-3 Pro upgrades (quick wins)
+
+**Days 31-60: Systematize**
+- Week 5-6: Health monitoring system (automate checks, Slack alerts)
+- Week 7-8: 5 expansion opportunities active (AI Assistant, Enterprise, multi-product)
+
+**Days 61-90: Scale**
+- Week 9-10: Feature request system (3-tier, weekly product sync)
+- Week 11-12: Document playbooks (what's working, templates, handoff to Chief of Staff)
+
+**By Day 90:**
+- 90%+ GRR maintained or improved
+- 5-10 Pro upgrades closed ($600-1,200 MRR added)
+- 3-5 Enterprise opportunities qualified for Q2
+- 1-2 strategic expansions in motion (Anthropic AI Assistant)
+- Scalable systems running (health monitoring, expansion pipeline)
+- Product team trusts my input on feature prioritization
+
+---
+
+## Conclusion
+
+This isn't comprehensive, it's what I'd actually do as first CS hire:
+
+1. Prevent churn first (stabilize revenue)
+2. Close quick wins (Hobby to Pro)
+3. Build expansion pipeline (Enterprise for Q2)
+4. Enable AI Assistant (product-led growth)
+5. Land Anthropic expansion (showcase customer)
+
+<Tip>
+**For the 30-60-90 Discussion:**
+
+Ready to discuss:
+- What I'd change based on your feedback
+- Prioritization if resources are tighter
+- Which accounts to focus on first
+- Handoff dynamics with Chief of Staff
+- Tools to invest in vs. DIY
+
+Goal isn't perfection, it's shipping fast and learning.
+</Tip>
